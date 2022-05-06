@@ -86,32 +86,31 @@ const firsObj = {
   const fivObj = {
     name: "Jorge",
     age: 12,
-    size: {
-      h: 130,
-      w: "200",
-      val: 180,
-    },
-    kese: null, // сделал случай, если вместе и obj и null что бы выводило true, если уберем obj то выдаст false
+    // size: {
+    //   h: 130,
+    //   w: "200",
+    //   val: 180,
+    // },
+    te: null
   };
-  function testObj() {
+  function testObj(obj) {
     let a = 0;
     for (let i in fivObj) {
       if (typeof fivObj[i] === "object") {
-        a = 1;
-        break;
-      } else {
+        a += 1;
+  
+      } else{
         a = 0;
       }
-      if (fivObj[i] === null) {
-        a = 0;
+      if ((fivObj[i] === null)){
+        a -= 5;
       }
     }
   
-    switch (a) {
-      case 1:
+    switch (a > 0)  {
+      case true:
         return true;
-        break;
-      case 0:
+      case false:
         return false;
     }
   }
